@@ -81,7 +81,9 @@ _goto_resolve_db()
   if [[ ! -d "$GOTO_DB_CONFIG_DIRNAME" ]]; then
     mkdir "$GOTO_DB_CONFIG_DIRNAME"
   fi
-  touch -a "$GOTO_DB"
+  if [[ ! -f "$GOTO_DB" ]]; then
+    touch -a "$GOTO_DB"
+  fi
 }
 
 _goto_usage()
